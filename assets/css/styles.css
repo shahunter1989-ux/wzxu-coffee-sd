@@ -12,6 +12,74 @@ body {
   overflow-x: hidden;
 }
 
+.flower-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.falling-flower {
+  --flower-size: 1.25rem;
+  --flower-x: 50vw;
+  --flower-delay: 0s;
+  --flower-duration: 28s;
+  --flower-opacity: .34;
+  --flower-sway: 2rem;
+  position: absolute;
+  top: -12vh;
+  left: var(--flower-x);
+  width: var(--flower-size);
+  height: var(--flower-size);
+  opacity: var(--flower-opacity);
+  filter: blur(var(--flower-blur, 0));
+  transform: translate3d(0, -12vh, 0) rotate(var(--flower-rotate, 0deg));
+  animation: flowerFall var(--flower-duration) linear var(--flower-delay) infinite;
+  will-change: transform;
+}
+
+.falling-flower::before,
+.falling-flower::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px 999px 999px 0;
+  background: var(--flower-color, #f7b6bd);
+  box-shadow:
+    calc(var(--flower-size) * .34) calc(var(--flower-size) * -.28) 0 var(--flower-accent, #ffe8eb),
+    calc(var(--flower-size) * .68) calc(var(--flower-size) * .06) 0 var(--flower-color, #f7b6bd),
+    calc(var(--flower-size) * .28) calc(var(--flower-size) * .42) 0 var(--flower-accent, #ffe8eb);
+}
+
+.falling-flower::after {
+  inset: 36%;
+  border-radius: 999px;
+  background: #dfc4a4;
+  box-shadow: none;
+}
+
+.falling-flower.flower-soft::before {
+  transform: rotate(18deg);
+}
+
+.falling-flower.flower-petal::before {
+  border-radius: 100% 0 100% 0;
+  transform: rotate(42deg);
+  box-shadow:
+    calc(var(--flower-size) * .42) calc(var(--flower-size) * -.16) 0 rgba(255, 232, 235, .9),
+    calc(var(--flower-size) * .72) calc(var(--flower-size) * .18) 0 rgba(223, 196, 164, .65);
+}
+
+.falling-flower.flower-petal::after {
+  opacity: 0;
+}
+
+.falling-flower.flower-blossom::before {
+  transform: rotate(-12deg) scale(.9);
+  background: #fff7ef;
+}
+
 .skip-link {
   position: fixed;
   left: 1rem;
@@ -402,6 +470,18 @@ body {
   }
 }
 
+@keyframes flowerFall {
+  0% {
+    transform: translate3d(0, -14vh, 0) rotate(var(--flower-rotate, 0deg));
+  }
+  50% {
+    transform: translate3d(var(--flower-sway), 52vh, 0) rotate(calc(var(--flower-rotate, 0deg) + 80deg));
+  }
+  100% {
+    transform: translate3d(calc(var(--flower-sway) * -1), 116vh, 0) rotate(calc(var(--flower-rotate, 0deg) + 170deg));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -415,6 +495,10 @@ body {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .flower-field {
+    display: none;
   }
 }
 
