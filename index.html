@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coffee the Chihuahua | Digital Pet Business Card</title>
+    <meta
+      name="description"
+      content="Meet Coffee, a tiny female Chihuahua in San Diego sharing beach walks, treats, toys, cute outfits, and everyday Chihuahua life."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:title" content="Coffee the Chihuahua" />
+    <meta
+      property="og:description"
+      content="Tiny paws. Big personality. Follow Coffee's San Diego adventures."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/img/coffee-profile.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              coffee: {
+                ink: "#3c2a22",
+                muted: "#7f675b",
+                blush: "#f08a96",
+                blushSoft: "#ffe8eb",
+                cream: "#fff7ef",
+                tan: "#dfc4a4",
+                latte: "#f4e5d4"
+              }
+            },
+            fontFamily: {
+              display: ["Playfair Display", "serif"],
+              sans: ["Inter", "system-ui", "sans-serif"]
+            },
+            boxShadow: {
+              luxury: "0 24px 60px rgba(89, 62, 45, .14)",
+              soft: "0 14px 38px rgba(89, 62, 45, .1)"
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body class="bg-white font-sans text-coffee-ink antialiased">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="fixed left-0 right-0 top-0 z-50 px-4 pt-4">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between rounded-[1.75rem] border border-white/70 bg-white/82 px-4 py-3 shadow-soft backdrop-blur-xl" aria-label="Primary navigation">
+        <a href="#home" class="flex items-center gap-2 text-coffee-ink" aria-label="Coffee home">
+          <span class="grid h-10 w-10 place-items-center rounded-full bg-coffee-blushSoft text-xl">🐾</span>
+          <span class="font-display text-2xl font-bold">Coffee</span>
+        </a>
+        <button id="menu-toggle" class="rounded-full border border-coffee-latte p-3 text-coffee-ink md:hidden" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="menu-icon"></span>
+        </button>
+        <div class="hidden items-center gap-8 text-sm font-semibold text-coffee-muted md:flex">
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#gallery">Gallery</a>
+          <a class="nav-link" href="#socials">Socials</a>
+          <a class="nav-link" href="#favorites">Favorites</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </div>
+        <a href="#socials" class="hidden rounded-full bg-coffee-blush px-5 py-3 text-sm font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#e86f7f] md:inline-flex">Follow Coffee</a>
+      </nav>
+      <div id="mobile-menu" class="mx-auto mt-3 hidden max-w-6xl rounded-[1.5rem] border border-white/70 bg-white/95 p-4 shadow-soft backdrop-blur-xl md:hidden">
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#socials">Socials</a>
+        <a href="#favorites">Favorites</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="home" class="hero relative min-h-screen overflow-hidden pt-28">
+        <div class="absolute inset-0 -z-20 bg-[url('assets/img/san-diego-hero.jpg')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 -z-10 bg-gradient-to-r from-white via-white/88 to-white/35"></div>
+        <span class="paw-accent left-[7%] top-32">🐾</span>
+        <span class="paw-accent right-[9%] top-44 hidden md:block">🐾</span>
+
+        <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-20 pt-8 md:grid-cols-[.92fr_1fr] md:pt-20">
+          <div class="reveal mx-auto w-full max-w-sm">
+            <div class="profile-ring">
+              <img
+                src="assets/img/coffee-profile.jpg"
+                alt="Coffee, a tan Chihuahua wearing a pink collar"
+                class="h-full w-full rounded-full object-cover"
+                loading="eager"
+              />
+            </div>
+          </div>
+          <div class="reveal text-center md:text-left">
+            <div class="mb-4 text-5xl" aria-hidden="true">🐾</div>
+            <h1 class="font-display text-6xl font-extrabold leading-none text-coffee-ink sm:text-7xl lg:text-8xl">Coffee</h1>
+            <p class="mt-5 text-lg font-semibold text-coffee-ink">Tiny Chihuahua • San Diego, California</p>
+            <div class="my-7 h-px w-full bg-gradient-to-r from-transparent via-coffee-blush to-transparent md:max-w-md"></div>
+            <p class="mx-auto max-w-xl text-xl leading-9 text-coffee-ink md:mx-0">
+              Tiny paws. Big personality. Sharing adventures, treats, toys, and everyday Chihuahua life.
+            </p>
+            <a href="#socials" class="follow-button mt-8 inline-flex items-center gap-3 rounded-full bg-coffee-blush px-8 py-4 text-base font-extrabold text-white shadow-luxury">
+              <span aria-hidden="true">🐾</span>
+              Follow Coffee
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section -mt-10">
+        <div class="glass-card reveal mx-auto max-w-5xl px-6 py-8 sm:px-10">
+          <h2 class="section-title">About Coffee</h2>
+          <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="info-row"><span>🐾</span><div><b>Breed</b><p>Chihuahua</p></div></div>
+            <div class="info-row"><span>♀</span><div><b>Gender</b><p>Female</p></div></div>
+            <div class="info-row"><span>📍</span><div><b>Location</b><p>San Diego, California</p></div></div>
+            <div class="info-row"><span>🎂</span><div><b>Age</b><p>2 Years</p></div></div>
+            <div class="info-row"><span>🍖</span><div><b>Favorite Snack</b><p>Chicken Treats</p></div></div>
+            <div class="info-row"><span>🦴</span><div><b>Favorite Toy</b><p>Squeaky Bone</p></div></div>
+            <div class="info-row"><span>☀</span><div><b>Favorite Activity</b><p>Beach Walks</p></div></div>
+            <div class="info-row lg:col-span-2"><span>♡</span><div><b>Personality</b><p>Sweet, playful, energetic, loyal, and loves attention.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section">
+        <h2 class="section-title reveal">Featured Gallery</h2>
+        <div class="mx-auto mt-8 grid max-w-6xl gap-5 px-5 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="gallery-card reveal"><img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?auto=format&fit=crop&w=700&q=80" alt="Coffee at the beach" loading="lazy" /><h3>Beach Day</h3></article>
+          <article class="gallery-card reveal"><img src="https://images.unsplash.com/photo-1581888227599-779811939961?auto=format&fit=crop&w=700&q=80" alt="Coffee sleeping in a cozy blanket" loading="lazy" /><h3>Sleeping</h3></article>
+          <article class="gallery-card reveal"><img src="https://images.unsplash.com/photo-1541599468348-e96984315921?auto=format&fit=crop&w=700&q=80" alt="Coffee playing with a toy" loading="lazy" /><h3>Playing</h3></article>
+          <article class="gallery-card reveal"><img src="https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?auto=format&fit=crop&w=700&q=80" alt="Coffee in a cute outfit" loading="lazy" /><h3>Cute Outfits</h3></article>
+          <article class="gallery-card reveal"><img src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?auto=format&fit=crop&w=700&q=80" alt="Coffee at the dog park" loading="lazy" /><h3>Dog Park</h3></article>
+          <article class="gallery-card reveal"><img src="https://images.unsplash.com/photo-1508675801627-066ac4346a9e?auto=format&fit=crop&w=700&q=80" alt="Coffee on a sunny adventure" loading="lazy" /><h3>Adventures</h3></article>
+        </div>
+      </section>
+
+      <section id="socials" class="section bg-coffee-cream/45">
+        <h2 class="section-title reveal">Connect & Support</h2>
+        <div class="mx-auto mt-8 grid max-w-6xl gap-4 px-5 md:grid-cols-5">
+          <a class="social-button reveal" href="https://www.tiktok.com/@coffeechihuahua" aria-label="Follow Coffee on TikTok"><span>♪</span><b>TikTok</b><small>Daily tiny adventures</small></a>
+          <a class="social-button reveal" href="https://www.instagram.com/coffeechihuahua" aria-label="Follow Coffee on Instagram"><span>◎</span><b>Instagram</b><small>Photos and reels</small></a>
+          <a class="social-button reveal" href="https://www.youtube.com/@coffeechihuahua" aria-label="Watch Coffee on YouTube"><span>▶</span><b>YouTube</b><small>Vlogs and shorts</small></a>
+          <a class="social-button reveal" href="https://www.amazon.com/shop/coffeechihuahua" aria-label="Shop Coffee's Amazon favorites"><span>a</span><b>Amazon Favorites</b><small>Shop Coffee's picks</small></a>
+          <a class="social-button reveal" href="https://www.paypal.com/paypalme/coffeechihuahua" aria-label="Support Coffee on PayPal"><span>P</span><b>PayPal Support</b><small>Treat fund</small></a>
+        </div>
+      </section>
+
+      <section id="favorites" class="section">
+        <h2 class="section-title reveal">Favorite Things</h2>
+        <div class="mx-auto mt-8 grid max-w-6xl grid-cols-2 gap-4 px-5 sm:grid-cols-4">
+          <div class="favorite-card reveal">🐾<b>Toys</b></div>
+          <div class="favorite-card reveal">🦴<b>Bones</b></div>
+          <div class="favorite-card reveal">🍖<b>Treats</b></div>
+          <div class="favorite-card reveal">☀<b>Sunshine</b></div>
+          <div class="favorite-card reveal">🌴<b>Parks</b></div>
+          <div class="favorite-card reveal">🚗<b>Car Rides</b></div>
+          <div class="favorite-card reveal">🛏<b>Cozy Bed</b></div>
+          <div class="favorite-card reveal">❤️<b>Belly Rubs</b></div>
+        </div>
+      </section>
+
+      <section id="adventures" class="section">
+        <h2 class="section-title reveal">Recent Adventures</h2>
+        <div class="timeline mx-auto mt-10 grid max-w-6xl gap-5 px-5 md:grid-cols-5">
+          <article class="timeline-card reveal"><b>🐾 Beach Adventure</b><p>Golden-hour beach walk with tiny footprints in the sand.</p></article>
+          <article class="timeline-card reveal"><b>🎀 New Outfit</b><p>A blush sweater moment for a sunny San Diego afternoon.</p></article>
+          <article class="timeline-card reveal"><b>🍖 Favorite Treat Review</b><p>Chicken treats received Coffee's very serious approval.</p></article>
+          <article class="timeline-card reveal"><b>🌸 Dog Park Visit</b><p>Fresh flowers, friendly pups, and lots of attention.</p></article>
+          <article class="timeline-card reveal"><b>📸 New Photos</b><p>New profile photos are ready for Coffee's socials.</p></article>
+        </div>
+      </section>
+
+      <section id="contact" class="section pb-12">
+        <div class="glass-card reveal mx-auto grid max-w-5xl gap-8 px-6 py-8 md:grid-cols-[.75fr_1fr]">
+          <div>
+            <div class="mb-5 grid h-20 w-20 place-items-center rounded-full border-2 border-coffee-blush text-4xl">✉</div>
+            <h2 class="font-display text-4xl font-bold">Contact</h2>
+            <p class="mt-4 text-coffee-muted">Placeholder details for collaborations, hellos, and treat-related business.</p>
+          </div>
+          <dl class="contact-list">
+            <div><dt>Owner</dt><dd>Coffee's Human</dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:hello@coffeechihuahua.com">hello@coffeechihuahua.com</a></dd></div>
+            <div><dt>Location</dt><dd>San Diego, California</dd></div>
+            <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/coffeechihuahua">@coffeechihuahua</a></dd></div>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <footer class="relative overflow-hidden border-t border-coffee-latte bg-coffee-cream/65 px-5 py-10 text-center">
+      <span class="paw-accent bottom-10 left-[12%]">🐾</span>
+      <span class="paw-accent bottom-16 right-[14%]">🐾</span>
+      <p class="font-display text-3xl font-bold">Coffee</p>
+      <p class="mt-3 text-sm text-coffee-muted">© 2026 Coffee</p>
+      <p class="mt-2 text-sm text-coffee-muted">Made with ❤️, treats, and tiny paws.</p>
+    </footer>
+
+    <button id="scroll-top" type="button" aria-label="Scroll to top">↑</button>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
