@@ -73,7 +73,7 @@ const buildFlowerField = () => {
   }
 
   currentFlowerMode = getFlowerMode();
-  const flowerCount = currentFlowerMode === "mobile" ? 7 : 13;
+  const flowerCount = currentFlowerMode === "mobile" ? 8 : 24;
   const fragment = document.createDocumentFragment();
 
   for (let index = 0; index < flowerCount; index += 1) {
@@ -82,12 +82,15 @@ const buildFlowerField = () => {
     const type = flowerTypes[index % flowerTypes.length];
 
     flower.className = `falling-flower ${type}`;
-    flower.style.setProperty("--flower-size", `${randomBetween(0.65, currentFlowerMode === "mobile" ? 1.05 : 1.35).toFixed(2)}rem`);
+    const sizeMax = currentFlowerMode === "mobile" ? 1.14 : index % 5 === 0 ? 1.9 : 1.55;
+    const sizeMin = currentFlowerMode === "mobile" ? 0.72 : index % 5 === 0 ? 1.25 : 0.82;
+
+    flower.style.setProperty("--flower-size", `${randomBetween(sizeMin, sizeMax).toFixed(2)}rem`);
     flower.style.setProperty("--flower-x", `${randomBetween(3, 96).toFixed(2)}vw`);
     flower.style.setProperty("--flower-delay", `${randomBetween(-28, 0).toFixed(2)}s`);
-    flower.style.setProperty("--flower-duration", `${randomBetween(24, 42).toFixed(2)}s`);
-    flower.style.setProperty("--flower-opacity", randomBetween(0.18, 0.38).toFixed(2));
-    flower.style.setProperty("--flower-sway", `${randomBetween(-3.5, 3.5).toFixed(2)}rem`);
+    flower.style.setProperty("--flower-duration", `${randomBetween(22, currentFlowerMode === "mobile" ? 38 : 46).toFixed(2)}s`);
+    flower.style.setProperty("--flower-opacity", randomBetween(0.2, currentFlowerMode === "mobile" ? 0.4 : 0.5).toFixed(2));
+    flower.style.setProperty("--flower-sway", `${randomBetween(-5.25, 5.25).toFixed(2)}rem`);
     flower.style.setProperty("--flower-rotate", `${randomBetween(-45, 45).toFixed(2)}deg`);
     flower.style.setProperty("--flower-blur", `${randomBetween(0, 0.8).toFixed(2)}px`);
     flower.style.setProperty("--flower-color", palette[0]);
