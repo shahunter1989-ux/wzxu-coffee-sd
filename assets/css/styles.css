@@ -747,4 +747,17 @@ body.lightbox-open {
     margin-right: auto;
     text-wrap: balance;
   }
+
+  .gallery-lightbox {
+    padding: .75rem;
+  }
+
+  .lightbox-panel {
+    max-height: 96vh;
+  }
+
+  .lightbox-panel img {
+    max-width: 92vw;
+    max-height: 86vh;
+  }
 }
