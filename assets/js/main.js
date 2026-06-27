@@ -4,6 +4,13 @@ const scrollTopButton = document.querySelector("#scroll-top");
 const revealItems = document.querySelectorAll(".reveal");
 const flowerField = document.querySelector(".flower-field");
 const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const galleryCards = document.querySelectorAll(".gallery-card");
+const lightbox = document.querySelector("#gallery-lightbox");
+const lightboxImage = document.querySelector("#lightbox-image");
+const lightboxTitle = document.querySelector("#lightbox-title");
+const lightboxClose = document.querySelector("#lightbox-close");
+const lightboxBackdrop = document.querySelector(".lightbox-backdrop");
+let activeGalleryTrigger = null;
 
 document.documentElement.classList.add("animations-ready");
 
@@ -46,6 +53,56 @@ updateScrollTop();
 
 scrollTopButton?.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+const closeLightbox = () => {
+  if (!lightbox || !lightboxImage || !lightboxTitle) return;
+
+  lightbox.classList.remove("is-open");
+  lightbox.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("lightbox-open");
+  lightboxImage.removeAttribute("src");
+  lightboxImage.alt = "";
+  lightboxImage.hidden = true;
+  lightboxTitle.textContent = "";
+  activeGalleryTrigger?.focus();
+  activeGalleryTrigger = null;
+};
+
+const openLightbox = (trigger) => {
+  if (!lightbox || !lightboxImage || !lightboxTitle || !lightboxClose) return;
+
+  activeGalleryTrigger = trigger;
+  lightboxImage.src = trigger.dataset.fullSrc;
+  lightboxImage.alt = trigger.dataset.alt || "";
+  lightboxImage.hidden = false;
+  lightboxTitle.textContent = trigger.dataset.title || "";
+  lightbox.classList.add("is-open");
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.classList.add("lightbox-open");
+  lightboxClose.focus();
+};
+
+galleryCards.forEach((card) => {
+  card.addEventListener("click", () => openLightbox(card));
+});
+
+lightboxClose?.addEventListener("click", closeLightbox);
+lightboxBackdrop?.addEventListener("click", closeLightbox);
+
+document.addEventListener("keydown", (event) => {
+  if (!lightbox?.classList.contains("is-open")) return;
+
+  if (event.key === "Escape") {
+    event.preventDefault();
+    closeLightbox();
+    return;
+  }
+
+  if (event.key === "Tab") {
+    event.preventDefault();
+    lightboxClose?.focus();
+  }
 });
 
 const flowerPalettes = [
